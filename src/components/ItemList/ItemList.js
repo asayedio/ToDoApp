@@ -4,14 +4,14 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 import './ItemList.css';
 
 const ItemList =(props) =>{
-    const {items} = props;
+    const {items,deleteItem} = props;
     const deleteIcon = <FontAwesomeIcon icon={faTrashAlt} />
     const ItemList = items.map(item => {
         return(
             <div key={item.id}>
                 <span>{item.task}</span>
                 <span>{item.priority}</span>
-                <span>{deleteIcon}</span>
+                <span onClick={() => deleteItem(item.id)}>{deleteIcon}</span>
             </div>
         )
     })

@@ -12,12 +12,25 @@ class App extends Component {
       
     ]
   }
+  deleteItem =(id) => {
+    /* using splice */
+    let items = this.state.items;
+    let i = items.findIndex(item => item.id === id)
+    items.splice(i,1)
+    this.setState({items})
+
+    /* using filter
+    let items = this.state.items.filter(item => {
+      return item.id !== id
+    });
+    this.setState({items})*/
+  }
 render(){
   return (
     <div className="App">
       <div className="header">
         To do App 
-        <ItemList items={this.state.items}/>
+        <ItemList items={this.state.items} deleteItem={this.deleteItem}/>
         <Item />
       </div>
     </div>
