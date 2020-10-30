@@ -13,7 +13,10 @@ const ItemList =(props) =>{
         )
     })
     return(
-        <div>
+        <div className="ListItems">
+            <span>Task</span>
+            <span>Date</span>
+            <span>Action</span>
              {ItemList}
         </div>
     )
