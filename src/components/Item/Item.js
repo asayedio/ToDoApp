@@ -1,19 +1,36 @@
 import React,{ Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCalendarPlus } from '@fortawesome/free-solid-svg-icons'
 import './Item.css';
-
+const addIcon = <FontAwesomeIcon icon={faCalendarPlus} /> 
 class Item extends Component {
   state = {
-    items :[
-      {id:1,name:'ahmed',age:23},
-      {id:2,name:'ahmed',age:23},
-      {id:3,name:'ahmed',age:23},
-      
-    ]
+    task:'',
+    priority:''
+  } 
+  handleChange = (e) =>{
+    this.setState({
+      //the birlant id
+      [e.target.id] : e.target.value
+    })
+  }
+  handleSubmit = (e) =>{
+    // to prevent the default refresh
+    e.preventDefault();
+    this.props.addItem(this.state)
+    this.setState({
+      task:'',
+      priority:''
+    })
   }
 render(){
   return (
     <div>
-        Item
+        <form> 
+          <input type="text" placeholder="Enter task name ..." id="task" onChange={this.handleChange} value={this.state.task}/>
+          <input type="number" placeholder="Enter task priority ..." id="priority" onChange={this.handleChange} value={this.state.priority}/>
+          <span onClick={this.handleSubmit}>{addIcon}</span>
+        </form>
     </div>
   );
 }

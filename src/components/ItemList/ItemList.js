@@ -22,7 +22,7 @@ const ItemList =(props) =>{
     return(
         <div className="ListItems">
             <span>Task</span>
-            <span>Date</span>
+            <span>Priority</span>
             <span>Action</span>
              {ItemList}
         </div>
