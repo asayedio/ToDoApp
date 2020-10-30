@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React,{ Component } from 'react';
 import './App.css';
+import Item from './components/Item/Item';
+import ItemList from './components/ItemList/ItemList';
 
-function App() {
+class App extends Component {
+  state = {
+    items :[
+      {id:1,task:'Finlize my work',priority:3},
+      {id:2,task:'go to doctor',priority:2},
+      {id:3,task:'study English',priority:1},
+      
+    ]
+  }
+render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="header">
+        To do App 
+        <ItemList items={this.state.items}/>
+        <Item />
+      </div>
     </div>
   );
+}
 }
 
 export default App;
