@@ -1,8 +1,8 @@
 import React,{ Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCalendarPlus } from '@fortawesome/free-solid-svg-icons'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import './Item.css';
-const addIcon = <FontAwesomeIcon icon={faCalendarPlus} /> 
+const addIcon = <FontAwesomeIcon icon={faPlus} /> 
 class Item extends Component {
   state = {
     task:'',
@@ -17,25 +17,20 @@ class Item extends Component {
   handleSubmit = (e) =>{
     // to prevent the default refresh
     e.preventDefault();
-    if(e.target.task.value ===''){
-      this.props.errorMessage('Enter the required filed!')
-      return false;
-    }
-    else{
-      this.props.addItem(this.state)
+    this.props.addItem(this.state)
       this.setState({
         task:'',
         priority:''
       })
-    }
   }
 render(){
   return (
     <div>
         <form> 
           <input type="text" placeholder="Enter task name ..." id="task" onChange={this.handleChange} value={this.state.task}/>
-          <input type="number" placeholder="Enter task priority ..." id="priority" onChange={this.handleChange} value={this.state.priority}/>
-          <button type="button" className="addIcon" onClick={this.handleSubmit}>{addIcon}</button> 
+          <input type="number" placeholder="Enter priority ..." id="priority" onChange={this.handleChange} value={this.state.priority}/>
+          <input type="submit" className="addIcon"  id="submit" value="Add" onClick={this.handleSubmit}/>
+          
         </form>
     </div>
   );
