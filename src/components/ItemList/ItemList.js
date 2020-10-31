@@ -12,18 +12,20 @@ const ItemList =(props) =>{
         items.map(item => {
             return(
                 <div key={item.id}>
-                    <span>{item.task}</span>
-                    <span>{item.priority}</span>
-                    <span onClick={() => deleteItem(item.id)}>{deleteIcon}</span>
+                    <span className="task">{item.task}</span>
+                    <span className="priority">{item.priority}</span>
+                    <span className="action delete-icon" onClick={() => deleteItem(item.id)}>{deleteIcon}</span>
                 </div>
             )
         })
-    ):(<p>{exclamationIcon}You don't have items! start adding</p>)
+    ):(<p><font>{exclamationIcon}</font>You don't have items! start adding</p>)
     return(
-        <div className="ListItems">
-            <span>Task</span>
-            <span>Priority</span>
-            <span>Action</span>
+        <div className="item-list">
+            <div>
+                <span className="task title">Task</span>
+                <span className="priority title">Priority</span>
+                <span className="action title">Action</span>
+            </div>
              {ItemList}
         </div>
     )

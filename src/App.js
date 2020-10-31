@@ -10,7 +10,8 @@ class App extends Component {
       {id:2,task:'go to doctor',priority:2},
       {id:3,task:'study English',priority:1},
       
-    ]
+    ],
+    error :'',
   }
   deleteItem =(id) => {
     /* using splice */
@@ -31,14 +32,22 @@ class App extends Component {
     items.push(item);
     this.setState({items});
   }
+  errorMessage = (error) =>{
+    this.setState({error})
+   if(this.state.error !=='')
+   return (
+      <div className="error">
+            {this.state.error}
+      </div>
+      );
+   return null;
+}
 render(){
   return (
-    <div className="App">
-      <div className="header">
-        To do App 
+    <div className="App container">
+      <h1 className="text-center">Todo App </h1> 
         <ItemList items={this.state.items} deleteItem={this.deleteItem}/>
-        <Item addItem={this.addItem}/>
-      </div>
+        <Item addItem={this.addItem} errorMessage={this.errorMessage}/>
     </div>
   );
 }

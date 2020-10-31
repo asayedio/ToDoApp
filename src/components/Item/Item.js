@@ -6,7 +6,7 @@ const addIcon = <FontAwesomeIcon icon={faCalendarPlus} />
 class Item extends Component {
   state = {
     task:'',
-    priority:''
+    priority:' '
   } 
   handleChange = (e) =>{
     this.setState({
@@ -17,11 +17,17 @@ class Item extends Component {
   handleSubmit = (e) =>{
     // to prevent the default refresh
     e.preventDefault();
-    this.props.addItem(this.state)
-    this.setState({
-      task:'',
-      priority:''
-    })
+    if(e.target.task.value ===''){
+      this.props.errorMessage('Enter the required filed!')
+      return false;
+    }
+    else{
+      this.props.addItem(this.state)
+      this.setState({
+        task:'',
+        priority:''
+      })
+    }
   }
 render(){
   return (
@@ -29,7 +35,7 @@ render(){
         <form> 
           <input type="text" placeholder="Enter task name ..." id="task" onChange={this.handleChange} value={this.state.task}/>
           <input type="number" placeholder="Enter task priority ..." id="priority" onChange={this.handleChange} value={this.state.priority}/>
-          <span onClick={this.handleSubmit}>{addIcon}</span>
+          <button type="button" className="addIcon" onClick={this.handleSubmit}>{addIcon}</button> 
         </form>
     </div>
   );

@@ -1,0 +1,53 @@
+.item-list{
+    background-color: #fff;
+    color: #282c34;
+}
+.item-list p{
+    margin: 0px;
+    text-align: center;
+    padding: 10px 0px;
+    color: #721c24;
+    background-color: #f8d7da;
+    
+}
+.item-list p font{
+    margin-right:10px;
+}
+.item-list span{
+    display: inline-block;
+    text-align: center;
+    padding: 10px 0px;
+    font-size: 20px;
+    border: 0.3px solid rgb(17, 15, 15)
+
+}
+.item-list span.title{
+    background-color: gray;
+    color: #fff;
+}
+.item-list span.task ,form input[type=text] {
+        width: 60%;
+}
+.item-list span.priority ,form input[type=number] {
+    width: 20%;
+}
+.item-list span.action ,form span.addIcon {
+    width: 20%;
+}
+form span.addIcon
+{
+    color: #282c34;
+    background-color: #ebebeb;
+    cursor: pointer;
+}
+.item-list span.delete-icon{
+    color: #dc3545;
+    cursor: pointer;
+    border: 0.3px solid rgb(17, 15, 15)
+}
+form input{
+    padding: 10px;
+    background-color: #ebebeb;
+    border:transparent;
+    border: 0.3px solid rgb(17, 15, 15)
+}
